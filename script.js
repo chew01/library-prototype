@@ -9,13 +9,15 @@ const submitButton = form.querySelector("button");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = () =>
-    `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.info = () =>
+      `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  }
 }
 
 function addBookToLibrary(book) {
@@ -41,15 +43,15 @@ function addRow(title, author, pages, read) {
   }
 
   function toggleRead() {
-      if (newRead.textContent === "read") {
-          newRead.textContent = "not yet read";
-      } else {
-          newRead.textContent = "read";
-      }
+    if (newRead.textContent === "read") {
+      newRead.textContent = "not yet read";
+    } else {
+      newRead.textContent = "read";
+    }
   }
 
   function deleteRow() {
-      newRow.remove();
+    newRow.remove();
   }
 
   const deleteButton = document.createElement("button");
