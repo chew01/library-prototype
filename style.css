@@ -15,7 +15,7 @@ body {
     border-style: solid;
 }
 
-.form {
+form {
     display: none;
 }
 
@@ -41,4 +41,17 @@ table {
 th {
     height: 30px;
     width: 100px;
+}
+
+input {
+    margin-top: 5px;
+    border: 2px solid black;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
+input:invalid:required {
+    background-color: pink;
 }

@@ -1,13 +1,13 @@
 const table = document.querySelector("table");
 const newBookButton = document.querySelector(".createButton");
-const form = document.querySelector(".form");
+const form = document.querySelector("form");
 const titleInput = form.querySelector("#title");
 const authorInput = form.querySelector("#author");
 const pagesInput = form.querySelector("#pages");
 const readInput = form.querySelector("#read");
 const submitButton = form.querySelector("button");
 
-let myLibrary = [];
+const myLibrary = [];
 
 class Book {
   constructor(title, author, pages, read) {
@@ -15,8 +15,6 @@ class Book {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = () =>
-      `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
   }
 }
 
@@ -79,23 +77,20 @@ function openForm() {
 }
 
 function addBook() {
-  let title = titleInput.value;
-  let author = authorInput.value;
-  let pages = pagesInput.value;
-  let read = readInput.checked;
+  if (form.checkValidity()) {
+    let title = titleInput.value;
+    let author = authorInput.value;
+    let pages = pagesInput.value;
+    let read = readInput.checked;
 
-  if (title === "" || author === "" || pages === "") {
-    alert("Not all blanks are filled!");
-    return;
+    let book = new Book(title, author, pages, read);
+    addBookToLibrary(book);
+    form.setAttribute("style", "display: none");
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    readInput.checked = false;
   }
-
-  let book = new Book(title, author, pages, read);
-  addBookToLibrary(book);
-  form.setAttribute("style", "display: none");
-  titleInput.value = "";
-  authorInput.value = "";
-  pagesInput.value = "";
-  readInput.checked = false;
 }
 
 newBookButton.addEventListener("click", openForm);

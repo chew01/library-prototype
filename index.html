@@ -11,17 +11,17 @@
   <body>
     <div class="creator">
       <button class="createButton">NEW BOOK</button>
-      <div class="form">
-        <label>Title</label>
-        <input id="title" /><br />
-        <label>Author</label>
-        <input id="author" /><br />
-        <label>Pages</label>
-        <input id="pages" /><br />
-        <label>Read?</label>
-        <input type="checkbox" id="read" /><br />
+      <form>
+        <label for="title">Title</label>
+        <input id="title" required><br />
+        <label for="author">Author</label>
+        <input id="author" required><br />
+        <label for="pages">Pages</label>
+        <input id="pages" required type="number"><br />
+        <label for="read">Read?</label>
+        <input type="checkbox" id="read"><br />
         <button>Add new book!</button>
-      </div>
+      </form>
     </div>
     <div class="table">
       <table>
